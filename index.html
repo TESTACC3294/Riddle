@@ -20,7 +20,7 @@
     </div>
 
     <div id="redactedMessage" style="color: blue; display: none;">
-        <p>You have entered the redacted password. Please state the project's name. </p>
+        <p>You have entered the secondary password. Please state the project's name. </p>
     </div>
 
     <div id="specialMessage" style="color: green; display: none;"></div> <!-- New div for special message -->
@@ -51,7 +51,7 @@
                 specialMessage.style.display = 'none';
             } else if (enteredPassword === redactedPassword) {
                 // Display message for the redacted password
-                redactedMessage.innerHTML = `<p>You have entered the redacted password! The correct alternative password is: <strong>${redactedPasswordResponse}</strong></p>`;
+                redactedMessage.innerHTML = `<p>You have entered the secondary password. Please input the project's name.</p>`;
                 redactedMessage.style.display = 'block';
                 successMessage.style.display = 'none';
                 errorMessage.style.display = 'none';
