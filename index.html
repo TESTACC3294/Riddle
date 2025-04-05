@@ -15,27 +15,23 @@
 
     <div id="errorMessage" style="color: red; display: none;">Incorrect password. Please try again.</div>
     <div id="successMessage" style="color: green; display: none;">
-        <p>KipBdWRpbyBGaWxlIFN0YXJ0aW5nKioKKipWb2x1bWU6MTAwJSoqCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCkl0J3MgbWUgYWdhaW4hIFNjaWVudGlzdCBbUkVEQUNURURdLiBUaGUgcHJvamVjdCBpcyBkb2luZyBncmVhdCEgVGhlIHJhZ25vcnMgd2lsbCByZWFkeSBmb3IgY29tYmF0IGluIDMtNSB3ZWVrcyEgV2UgbmVhcmx5IHNwZW50IGFsbCBvZiBvdXIgYnVkZ2V0IG1ha2luZyBvbmUgb2YgdGhlc2UgcGVyZmVjdGVkIGRyb2lkcyB0aG91Z2guIEJ1dCBhZnRlciB0ZXN0aW5nLCBpdCBoYXMgZ3JlYXQgcG90ZW50aWFsIGFuZCBwb3dlciBzbyBpdCB3YXMgd29ydGggaXQuIEkgd291bGQgbGlrZSB0byBtYWtlIGEgbm90ZS4gVGhlIGRyb2lkcyBoYXZlIG9uZSBtYXNzaXZlIHdlYWtuZXNzLiBXZWxsLCB0d28uIFRoZSBmaXJzdCB3ZWFrbmVzcyBpcyBpdHNlbGYgYW5kIG90aGVyIGRyb2lkcy4gVGhlIHNlY29uZCBpcyBhIGh1Z2UgYW1vdW50IG9mIGN1cnNlZCBlbmVyZ3kuCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCioqQXVkaW8gRmlsZSBFbmRlZCoqCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCkNvbmdyYXR1bGF0aW9ucyBvbiBtYWtpbmcgaXQgdGhpcyBmYXIh<br> 
+        <p>KipBdWRpbyBGaWxlIFN0YXJ0aW5nKioKKipWb2x1bWU6MTAwJSoqCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCkl0J3MgbWUgYWdhaW4hIFNjaWVudGlzdCBbUkVEQUNURURdLiBUaGUgcHJvamVjdCBpcyBkb2luZyBncmVhdCEgVGhlIHJhZ25vcnMgd2lsbCByZWFkeSBmb3IgY29tYmF0IGluIDMtNSB3ZWVrcyEgV2UgbmVhcmx5IHNwZW50IGFsbCBvZiBvdXIgYnVkZ2V0IG1ha2luZyBvbmUgb2YgdGhlc2UgcGVyZmVjdGVkIGRyb2lkcyB0aG91Z2guIEJ1dCBhZnRlciB0ZXN0aW5nLCBpdCBoYXMgZ3JlYXQgcG90ZW50aWFsIGFuZCBwb3dlciBzbyBpdCB3YXMgd29ydGggaXQuIEkgd291bGQgbGlrZSB0byBtYWtlIGEgbm90ZS4gVGhlIGRyb2lkcyBoYXZlIG9uZSBtYXNzaXZlIHdlYWtuZXNzLiBXZWxsLCB0d28uIFRoZSBmaXJzdCB3ZWFrbmVzcyBpcyBpdHNlbGYgYW5kIG90aGVyIGRyb2lkcy4gVGhlIHNlY29uZCBpcyBhIGh1Z2UgYW1vdW50IG9mIGN1cnNlZCBlbmVyZ3kuCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCioqQXVkaW8gRmlsZSBFbmRlZCoqCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCkNvbmdyYXR1bGF0aW9ucyBvbiBtYWtpbmcgaXQgdGhpcyBmYXIh<br> 
         <span id="successText" style="font-weight: bold;">It is reading our thoughts as though they were words on a screen.</span></p>
     </div>
 
-    <div id="redactedMessage" style="color: blue; display: none;">
-        <p>You have entered the secondary password. Please state the project's name. </p>
-    </div>
+    <div id="redactedMessage" style="color: blue; display: none;"></div> <!-- Display the password directly here -->
 
     <div id="specialMessage" style="color: green; display: none;"></div> <!-- New div for special message -->
 
     <script>
         const correctPassword = "It is reading our thoughts as though they were words on a screen.";
-        const redactedPassword = "[REDACTED]";
-        const redactedPasswordResponse = "Ragnors"; // The message for the redacted password
-        const specialPassword = "Ragnors"; // New password for the special message
+        const redactedPassword = "[REDACTED]"; // Password that will trigger Ragnors display
+        const specialPassword = "Ragnors"; // Special password to trigger a specific message
         const specialPasswordResponse = "Congrats! You completed the trials!"; // Message for the special password
         const form = document.getElementById('passwordForm');
         const passwordInput = document.getElementById('password');
         const errorMessage = document.getElementById('errorMessage');
         const successMessage = document.getElementById('successMessage');
-        const successText = document.getElementById('successText');
         const redactedMessage = document.getElementById('redactedMessage');
         const specialMessage = document.getElementById('specialMessage'); // New div for special message
 
@@ -50,8 +46,8 @@
                 redactedMessage.style.display = 'none';
                 specialMessage.style.display = 'none';
             } else if (enteredPassword === redactedPassword) {
-                // Display message for the redacted password
-                redactedMessage.innerHTML = `<p>You have entered the secondary password. Please input the project's name.</p>`;
+                // Display Ragnors directly when [REDACTED] is entered
+                redactedMessage.innerHTML = `<p>${specialPassword}</p>`; // Show "Ragnors"
                 redactedMessage.style.display = 'block';
                 successMessage.style.display = 'none';
                 errorMessage.style.display = 'none';
