@@ -1,57 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password System</title>
-</head>
-<body>
-    <h2>Password Protected Page</h2>
-    <form id="passwordForm">
-        <label for="password">Enter Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Submit</button>
-    </form>
+<script>
+    const correctPassword = "It is reading our thoughts as though they were words on a screen.";
+    const redactedPassword = "[REDACTED]";
+    const redactedPasswordResponse = "Bomb"; // Store the value to be displayed when the redacted password is entered
+    const form = document.getElementById('passwordForm');
+    const passwordInput = document.getElementById('password');
+    const errorMessage = document.getElementById('errorMessage');
+    const successMessage = document.getElementById('successMessage');
+    const successText = document.getElementById('successText');
+    const redactedMessage = document.getElementById('redactedMessage');
 
-    <div id="errorMessage" style="color: red; display: none;">Incorrect password. Please try again.</div>
-    <div id="successMessage" style="color: green; display: none;">
-        <p>KipBdWRpbyBGaWxlIFN0YXJ0aW5nKioKKipWb2x1bWU6MTAwJSoqCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCkl0J3MgbWUgYWdhaW4hIFNjaWVudGlzdCBbUkVEQUNURURdLiBUaGUgcHJvamVjdCBpcyBkb2luZyBncmVhdCEgVGhlIHJhZ25vcnMgd2lsbCByZWFkeSBmb3IgY29tYmF0IGluIDMtNSB3ZWVrcyEgV2UgbmVhcmx5IHNwZW50IGFsbCBvZiBvdXIgYnVkZ2V0IG1ha2luZyBvbmUgb2YgdGhlc2UgcGVyZmVjdGVkIGRyb2lkcyB0aG91Z2guIEJ1dCBhZnRlciB0ZXN0aW5nLCBpdCBoYXMgZ3JlYXQgcG90ZW50aWFsIGFuZCBwb3dlciBzbyBpdCB3YXMgd29ydGggaXQuIEkgd291bGQgbGlrZSB0byBtYWtlIGEgbm90ZS4gVGhlIGRyb2lkcyBoYXZlIG9uZSBtYXNzaXZlIHdlYWtuZXNzLiBXZWxsLCB0d28uIFRoZSBmaXJzdCB3ZWFrbmVzcyBpcyBpdHNlbGYgYW5kIG90aGVyIGRyb2lkcy4gVGhlIHNlY29uZCBpcyBhIGh1Z2UgYW1vdW50IG9mIGN1cnNlZCBlbmVyZ3kuCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCioqQXVkaW8gRmlsZSBFbmRlZCoqCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCkNvbmdyYXR1bGF0aW9ucyBvbiBtYWtpbmcgaXQgdGhpcyBmYXIh<br> 
-        <span id="successText" style="font-weight: bold;">It is reading our thoughts as though they were words on a screen.</span></p>
-    </div>
+    form.addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent form submission
 
-    <div id="redactedMessage" style="color: blue; display: none;">
-        <p>You have entered the redacted password!</p>
-    </div>
+        const enteredPassword = passwordInput.value;
 
-    <script>
-        const correctPassword = "It is reading our thoughts as though they were words on a screen.";
-        const redactedPassword = "[REDACTED]";
-        const form = document.getElementById('passwordForm');
-        const passwordInput = document.getElementById('password');
-        const errorMessage = document.getElementById('errorMessage');
-        const successMessage = document.getElementById('successMessage');
-        const successText = document.getElementById('successText');
-        const redactedMessage = document.getElementById('redactedMessage');
-
-        form.addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent form submission
-
-            const enteredPassword = passwordInput.value;
-
-            if (enteredPassword === correctPassword) {
-                successMessage.style.display = 'block';
-                errorMessage.style.display = 'none';
-                redactedMessage.style.display = 'none';
-            } else if (enteredPassword === redactedPassword) {
-                redactedMessage.style.display = 'block';
-                successMessage.style.display = 'none';
-                errorMessage.style.display = 'none';
-            } else {
-                errorMessage.style.display = 'block';
-                successMessage.style.display = 'none';
-                redactedMessage.style.display = 'none';
-            }
-        });
-    </script>
-</body>
-</html>
+        if (enteredPassword === correctPassword) {
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+            redactedMessage.style.display = 'none';
+        } else if (enteredPassword === redactedPassword) {
+            redactedMessage.innerHTML = `<p>You have entered the redacted password! The correct password is: <strong>${redactedPasswordResponse}</strong></p>`;
+            redactedMessage.style.display = 'block';
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+        } else {
+            errorMessage.style.display = 'block';
+            successMessage.style.display = 'none';
+            redactedMessage.style.display = 'none';
+        }
+    });
+</script>
