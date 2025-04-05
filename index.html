@@ -37,7 +37,7 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to My GitHub Website</h1>
+    <h1>Welcome to the website part of the riddle!</h1>
     
     <!-- Password Form -->
     <div id="password-form">
@@ -58,7 +58,7 @@
 
         // Function to check the entered password
         function checkPassword() {
-            const enteredPassword = document.getElementById("password").value;
+            const enteredPassword = document.getElementById("password").value.trim(); // Trim spaces from the input
 
             if (enteredPassword === correctPassword) {
                 // Show the protected content and hide the password form
