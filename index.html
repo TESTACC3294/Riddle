@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protected Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
 
+        #content {
+            display: none;
+        }
+
+        #password-form {
+            margin-top: 20px;
+        }
+
+        input[type="password"] {
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My GitHub Website</h1>
+    
+    <!-- Password Form -->
+    <div id="password-form">
+        <p>Please enter the password:</p>
+        <input type="password" id="password" placeholder="Enter password">
+        <input type="submit" value="Submit" onclick="checkPassword()">
+    </div>
+
+    <!-- Protected Content -->
+    <div id="content">
+        <p>This is the protected content of your website.</p>
+        <p>Feel free to add any other content here that you want to hide until the correct password is entered.</p>
+    </div>
+
+    <script>
+        // The hardcoded password for protection (not secure, just for demo purposes)
+        const correctPassword = "It is reading our thoughts as though they were words on a screen"; // Updated password
+
+        // Function to check the entered password
+        function checkPassword() {
+            const enteredPassword = document.getElementById("password").value;
+
+            if (enteredPassword === correctPassword) {
+                // Show the protected content and hide the password form
+                document.getElementById("password-form").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                alert("Incorrect password, please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
