@@ -1,46 +1,75 @@
-<script>
-    const correctPassword = "It is reading our thoughts as though they were words on a screen.";
-    const redactedPassword = "[REDACTED]";
-    const redactedPasswordResponse = "Ragnors"; // The message for the redacted password
-    const specialPassword = "Ragnors"; // New password for the special message
-    const specialPasswordResponse = "Congrats! You completed the trials!"; // Message for the special password
-    const form = document.getElementById('passwordForm');
-    const passwordInput = document.getElementById('password');
-    const errorMessage = document.getElementById('errorMessage');
-    const successMessage = document.getElementById('successMessage');
-    const successText = document.getElementById('successText');
-    const redactedMessage = document.getElementById('redactedMessage');
-    const specialMessage = document.getElementById('specialMessage'); // New div for special message
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password System</title>
+</head>
+<body>
+    <h2>Password Protected Page</h2>
+    <form id="passwordForm">
+        <label for="password">Enter Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Submit</button>
+    </form>
 
-    form.addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent form submission
+    <div id="errorMessage" style="color: red; display: none;">Incorrect password. Please try again.</div>
+    <div id="successMessage" style="color: green; display: none;">
+        <p>KipBdWRpbyBGaWxlIFN0YXJ0aW5nKioKKipWb2x1bWU6MTAwJSoqCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCkl0J3MgbWUgYWdhaW4hIFNjaWVudGlzdCBbUkVEQUNURURdLiBUaGUgcHJvamVjdCBpcyBkb2luZyBncmVhdCEgVGhlIHJhZ25vcnMgd2lsbCByZWFkeSBmb3IgY29tYmF0IGluIDMtNSB3ZWVrcyEgV2UgbmVhcmx5IHNwZW50IGFsbCBvZiBvdXIgYnVkZ2V0IG1ha2luZyBvbmUgb2YgdGhlc2UgcGVyZmVjdGVkIGRyb2lkcyB0aG91Z2guIEJ1dCBhZnRlciB0ZXN0aW5nLCBpdCBoYXMgZ3JlYXQgcG90ZW50aWFsIGFuZCBwb3dlciBzbyBpdCB3YXMgd29ydGggaXQuIEkgd291bGQgbGlrZSB0byBtYWtlIGEgbm90ZS4gVGhlIGRyb2lkcyBoYXZlIG9uZSBtYXNzaXZlIHdlYWtuZXNzLiBXZWxsLCB0d28uIFRoZSBmaXJzdCB3ZWFrbmVzcyBpcyBpdHNlbGYgYW5kIG90aGVyIGRyb2lkcy4gVGhlIHNlY29uZCBpcyBhIGh1Z2UgYW1vdW50IG9mIGN1cnNlZCBlbmVyZ3kuCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCioqQXVkaW8gRmlsZSBFbmRlZCoqCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCkNvbmdyYXR1bGF0aW9ucyBvbiBtYWtpbmcgaXQgdGhpcyBmYXIh<br> 
+        <span id="successText" style="font-weight: bold;">It is reading our thoughts as though they were words on a screen.</span></p>
+    </div>
 
-        const enteredPassword = passwordInput.value;
+    <div id="redactedMessage" style="color: blue; display: none;">
+        <p>You have entered the redacted password! The correct alternative password is: <strong>This is the correct alternative password.</strong></p>
+    </div>
 
-        if (enteredPassword === correctPassword) {
-            successMessage.style.display = 'block';
-            errorMessage.style.display = 'none';
-            redactedMessage.style.display = 'none';
-            specialMessage.style.display = 'none';
-        } else if (enteredPassword === redactedPassword) {
-            // Display message for the redacted password
-            redactedMessage.innerHTML = `<p>You have entered the redacted password! The correct alternative password is: <strong>${redactedPasswordResponse}</strong></p>`;
-            redactedMessage.style.display = 'block';
-            successMessage.style.display = 'none';
-            errorMessage.style.display = 'none';
-            specialMessage.style.display = 'none';
-        } else if (enteredPassword === specialPassword) {
-            // Display special message for "Ragnors"
-            specialMessage.innerHTML = `<p>${specialPasswordResponse}</p>`;
-            specialMessage.style.display = 'block';
-            successMessage.style.display = 'none';
-            errorMessage.style.display = 'none';
-            redactedMessage.style.display = 'none';
-        } else {
-            errorMessage.style.display = 'block';
-            successMessage.style.display = 'none';
-            redactedMessage.style.display = 'none';
-            specialMessage.style.display = 'none';
-        }
-    });
-</script>
+    <div id="specialMessage" style="color: green; display: none;"></div> <!-- New div for special message -->
+
+    <script>
+        const correctPassword = "It is reading our thoughts as though they were words on a screen.";
+        const redactedPassword = "[REDACTED]";
+        const redactedPasswordResponse = "Ragnors"; // The message for the redacted password
+        const specialPassword = "Ragnors"; // New password for the special message
+        const specialPasswordResponse = "Congrats! You completed the trials!"; // Message for the special password
+        const form = document.getElementById('passwordForm');
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+        const successText = document.getElementById('successText');
+        const redactedMessage = document.getElementById('redactedMessage');
+        const specialMessage = document.getElementById('specialMessage'); // New div for special message
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent form submission
+
+            const enteredPassword = passwordInput.value;
+
+            if (enteredPassword === correctPassword) {
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+                redactedMessage.style.display = 'none';
+                specialMessage.style.display = 'none';
+            } else if (enteredPassword === redactedPassword) {
+                // Display message for the redacted password
+                redactedMessage.innerHTML = `<p>You have entered the redacted password! The correct alternative password is: <strong>${redactedPasswordResponse}</strong></p>`;
+                redactedMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+                specialMessage.style.display = 'none';
+            } else if (enteredPassword === specialPassword) {
+                // Display special message for "Ragnors"
+                specialMessage.innerHTML = `<p>${specialPasswordResponse}</p>`;
+                specialMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+                redactedMessage.style.display = 'none';
+            } else {
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                redactedMessage.style.display = 'none';
+                specialMessage.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
